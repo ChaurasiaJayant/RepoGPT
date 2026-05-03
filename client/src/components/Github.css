@@ -1,0 +1,780 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  background-color: #141d2f;
+  color: #fefefe;
+  font-size: 13px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 50px;
+}
+.h3 {
+  margin-top: 12px;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+
+  color: #94a3b8;
+
+  text-transform: uppercase;
+
+  position: relative;
+
+  display: inline-block;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Animated underline */
+h3::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  /* background: linear-gradient(90deg, #3b82f6, #60a5fa, transparent); */
+
+  border-radius: 10px;
+
+  opacity: 0.8;
+}
+
+/* Hover effect */
+h3:hover {
+  color: #dbeafe;
+
+  transform: translateY(-2px);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* .search-input {
+  width: 500px;
+  padding: 15px 20px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: #2b3d65;
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.search-input::placeholder {
+  color: white;
+} */
+
+.search-input {
+  width: 500px;
+
+  padding: 15px 20px;
+
+  outline: none;
+
+  border: 1px solid #334155;
+
+  font-size: 20px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #1e293b, #273449);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  color: white;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+}
+
+/* Placeholder */
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Focus Effect */
+.search-input:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15),
+    0 12px 30px rgba(0, 0, 0, 0.3);
+
+  transform: translateY(-2px);
+}
+
+/* Hover */
+.search-input:hover {
+  border-color: #475569;
+}
+
+/* .search-btn {
+  width: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: none;
+  outline: none;
+  text-align: center;
+  background-color: #20428a;
+  color: white;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
+} */
+
+.search-btn {
+  width: 100px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  border: none;
+  outline: none;
+
+  text-align: center;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.3s ease;
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.search-btn:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+
+  box-shadow: 0 14px 30px rgba(59, 130, 246, 0.35);
+}
+
+/* Click Animation */
+.search-btn:active {
+  transform: scale(0.96);
+}
+
+/* Soft Glow Layer */
+.search-btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+/* Glow on Hover */
+.search-btn:hover::before {
+  opacity: 1;
+}
+
+.error-msg {
+  font-size: 20px;
+}
+
+.profile-container {
+  width: 720px;
+  height: auto;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #1e2a47;
+  border-radius: 20px;
+  font-size: 15px;
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-content {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+}
+
+.profile-img {
+  height: 100%;
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  width: 100px;
+  border: 3px solid #20428a;
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-des {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+  gap: 100px;
+}
+
+.profile-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.profile-username {
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  /* padding: 15px; */
+  padding-bottom: 5px;
+}
+
+/* .link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* background-color: red; */
+/* margin-left: 15px; */
+/* width: auto; */
+/* } */
+/* .githubsvg {
+  padding-top: 5px;
+  width: 24px;
+  height: 24px;
+  display: block;
+} */
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: 15px;
+
+  width: fit-content;
+}
+
+.githubsvg {
+  width: 24px;
+  height: 24px;
+
+  display: block;
+
+  transition: transform 0.3s ease;
+}
+
+/* Username Link */
+.profile-username {
+  color: #60a5fa;
+
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  position: relative;
+
+  transition:
+    color 0.3s ease,
+    transform 0.25s ease;
+}
+
+/* Animated Underline */
+.profile-username::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #60a5fa;
+
+  transition: width 0.3s ease;
+}
+
+/* Hover Effects */
+.link:hover .profile-username {
+  color: #93c5fd;
+
+  transform: translateX(2px);
+}
+
+.link:hover .profile-username::after {
+  width: 100%;
+}
+
+.link:hover .githubsvg {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.profile-bio {
+  margin: 40px 20px 20px 5px;
+  color: #b1a7a7;
+  line-height: 1.5rem;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+  height: 100px;
+  width: 500px;
+  background-color: #141d2f;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 2.5rem;
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+.stats {
+  color: #1b47a4;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 50px;
+  gap: 80px;
+}
+
+.profile-location {
+  display: flex;
+  gap: 10px;
+}
+.profile-company {
+  display: flex;
+  gap: 10px;
+}
+
+.repo-container {
+  width: 720px;
+  max-height: 500px; /* fixed height */
+  overflow-y: auto; /* vertical scrolling */
+  padding-right: 10px;
+  margin-top: 30px;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.repo-card {
+  background-color: #1e2a47;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* .repo-card:hover {
+  transform: translateY(-8px) scale(1.02);
+
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
+} */
+.repo-card h3 {
+  margin-bottom: 10px;
+}
+
+.repo-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.repo-container::-webkit-scrollbar-thumb {
+  background: #20428a;
+  border-radius: 10px;
+}
+
+.repo-h {
+  margin-bottom: 10px;
+}
+/* .repo-name {
+  display: inline;
+  padding: 2px 10px;
+  border-radius: 5px;
+  background-color: #141d2f;
+  color: #52658d;
+  font-size: 20px;
+} */
+
+.repo-name {
+  display: inline-block;
+
+  padding: 6px 14px;
+
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #1e293b, #273449);
+
+  border: 1px solid #334155;
+
+  color: #93c5fd;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Hover Effect */
+.repo-card:hover .repo-name {
+  transform: translateY(-2px);
+
+  color: #dbeafe;
+
+  border-color: #3b82f6;
+
+  box-shadow: 0 10px 22px rgba(59, 130, 246, 0.18);
+}
+
+/* .repo-des {
+  margin-top: 10px;
+} */
+
+.repo-des {
+  margin-top: 10px;
+
+  color: #94a3b8;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.3px;
+
+  max-width: 90%;
+
+  transition: color 0.3s ease;
+}
+
+/* Subtle hover enhancement */
+.repo-card:hover .repo-des {
+  color: #cbd5e1;
+}
+
+/* .repo-btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  text-align: center;
+  background-color: #20428a;
+  color: white;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  /* height: 2.5rem; */
+/* } */
+
+.repo-btn {
+  width: 100px;
+
+  padding: 10px;
+
+  border: none;
+  outline: none;
+
+  text-align: center;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  border-radius: 20px;
+  height: fit-content;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.3s ease;
+
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* Hover */
+.repo-btn:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+
+  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.32);
+}
+
+/* Click */
+.repo-btn:active {
+  transform: scale(0.96);
+}
+
+/* Soft Glow */
+.repo-btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.repo-btn:hover::before {
+  opacity: 1;
+}
+
+.repo-files {
+  width: 720px;
+  margin-top: 30px;
+}
+
+.file-card {
+  background-color: #1e2a47;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .main-heading {
+    font-size: 25px;
+  }
+  .search-input {
+    width: 400px;
+  }
+  .profile-container {
+    width: 500px;
+  }
+  .profile-avatar {
+    width: 80px;
+  }
+  .profile-des {
+    width: 350px;
+    gap: 50px;
+  }
+  .profile-name {
+    font-size: 15px;
+  }
+  .profile-created {
+    font-size: 13px;
+  }
+  .profile-username {
+    font-size: 13px;
+    margin-left: 10px;
+  }
+  .profile-bio {
+    font-size: 12px;
+    margin: 40px 60px 20px 5px;
+  }
+  .profile-stats {
+    width: 330px;
+  }
+  .stats {
+    font-size: 25px;
+  }
+  .profile-info {
+    gap: 40px;
+  }
+  .profile-location {
+    font-size: 12px;
+  }
+  .profile-company {
+    font-size: 12px;
+  }
+  .twitter-link {
+    width: 200px;
+    font-size: 12px;
+  }
+  .profile-url {
+    width: 200px;
+    font-size: 12px;
+  }
+  .repo-container {
+    width: 90%;
+    max-height: 450px;
+  }
+
+  .repo-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 590px) {
+  .main-heading {
+    font-size: 20px;
+  }
+  .search-input {
+    width: 250px;
+  }
+  .search-btn {
+    width: 80px;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .profile-container {
+    width: 400px;
+  }
+  .profile-avatar {
+    width: 50px;
+  }
+  .profile-des {
+    width: 280px;
+    gap: 40px;
+  }
+  .profile-name {
+    font-size: 12px;
+  }
+  .profile-created {
+    font-size: 11px;
+  }
+  .profile-username {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+  .profile-bio {
+    font-size: 10px;
+    margin: 40px 60px 20px 5px;
+  }
+  .profile-stats {
+    width: 250px;
+    font-size: 10px;
+  }
+  .stats {
+    font-size: 18px;
+  }
+  .profile-info {
+    gap: 20px;
+  }
+  .profile-location {
+    font-size: 10px;
+  }
+  .profile-company {
+    font-size: 10px;
+  }
+  .twitter-link {
+    width: 180px;
+    font-size: 10px;
+  }
+  .profile-url {
+    width: 180px;
+    font-size: 10px;
+  }
+  .repo-container {
+    width: 95%;
+    max-height: 400px;
+  }
+
+  .repo-card {
+    padding: 15px;
+  }
+
+  .repo-card h3 {
+    font-size: 18px;
+  }
+
+  .repo-card p {
+    font-size: 14px;
+  }
+
+  .repo-card a {
+    font-size: 14px;
+  }
+}
