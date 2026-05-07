@@ -82,22 +82,6 @@ h3:hover {
   gap: 20px;
 }
 
-/* .search-input {
-  width: 500px;
-  padding: 15px 20px;
-  outline: none;
-  border: none;
-  font-size: 20px;
-  border-radius: 20px;
-  background-color: #2b3d65;
-  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
-  color: white;
-}
-
-.search-input::placeholder {
-  color: white;
-} */
-
 .search-input {
   width: 500px;
 
@@ -218,7 +202,7 @@ h3:hover {
 }
 
 .profile-container {
-  width: 720px;
+  width: min(720px, 92%);
   height: auto;
   margin: 0 auto;
   padding: 30px;
@@ -254,8 +238,8 @@ h3:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 500px;
-  gap: 100px;
+  width: 100%;
+  gap: clamp(20px, 5vw, 100px);
 }
 
 .profile-name {
@@ -381,13 +365,20 @@ h3:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
   margin-top: 20px;
-  height: 100px;
-  width: 500px;
+
+  min-height: 100px;
+  width: 100%;
+  max-width: 500px;
+
   background-color: #141d2f;
+
   border-radius: 10px;
+
   font-size: 13px;
   line-height: 2.5rem;
+
   box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.2);
 }
 
@@ -431,18 +422,16 @@ h3:hover {
   background-color: #1e2a47;
   padding: 20px;
   border-radius: 15px;
+
   display: flex;
   justify-content: space-between;
-  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  align-items: flex-start;
+  gap: 20px;
+
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-/* .repo-card:hover {
-  transform: translateY(-8px) scale(1.02);
-
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
-} */
 .repo-card h3 {
   margin-bottom: 10px;
 }
@@ -506,13 +495,10 @@ h3:hover {
   box-shadow: 0 10px 22px rgba(59, 130, 246, 0.18);
 }
 
-/* .repo-des {
-  margin-top: 10px;
-} */
-
 .repo-des {
   margin-top: 10px;
-
+  word-break: break-word;
+  overflow-wrap: break-word;
   color: #94a3b8;
 
   font-size: 15px;
@@ -531,45 +517,22 @@ h3:hover {
   color: #cbd5e1;
 }
 
-/* .repo-btn {
-  width: 100px;
-  padding: 10px;
-  border: none;
-  outline: none;
-  text-align: center;
-  background-color: #20428a;
-  color: white;
-  border-radius: 20px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  /* height: 2.5rem; */
-/* } */
-
 .repo-btn {
   width: 100px;
-
   padding: 10px;
-
   border: none;
   outline: none;
-
   text-align: center;
-
   background: linear-gradient(135deg, #2563eb, #3b82f6);
-
   color: white;
-
   border-radius: 20px;
   height: fit-content;
-
   font-size: 15px;
   font-weight: 700;
-
   cursor: pointer;
-
   text-decoration: none;
+  flex-shrink: 0;
+  min-width: 100px;
 
   transition:
     transform 0.25s ease,
@@ -581,6 +544,10 @@ h3:hover {
   position: relative;
 
   overflow: hidden;
+}
+.repo-left {
+  flex: 1;
+  min-width: 0;
 }
 
 /* Hover */
@@ -698,8 +665,15 @@ h3:hover {
   .main-heading {
     font-size: 20px;
   }
+  .search-form {
+    width: 100%;
+    padding: 0 15px;
+  }
+
   .search-input {
-    width: 250px;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
   }
   .search-btn {
     width: 80px;
@@ -707,9 +681,7 @@ h3:hover {
     padding-top: 15px;
     padding-bottom: 15px;
   }
-  .profile-container {
-    width: 400px;
-  }
+
   .profile-avatar {
     width: 50px;
   }
@@ -774,5 +746,40 @@ h3:hover {
 
   .repo-card a {
     font-size: 14px;
+  }
+  .repo-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .repo-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .profile-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-des {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .profile-bio {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .profile-container {
+    padding: 20px 16px;
   }
 }

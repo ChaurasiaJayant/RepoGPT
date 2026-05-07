@@ -184,6 +184,16 @@ const AnalyzeRepo = () => {
                   css: "css",
                   json: "json",
                   py: "python",
+                  java: "java",
+                  cpp: "cpp",
+                  cxx: "cpp",
+                  cc: "cpp",
+                  c: "c",
+                  cs: "csharp",
+                  go: "go",
+                  rs: "rust",
+                  php: "php",
+                  rb: "ruby",
                 }[selectedFile?.name?.split(".").pop()?.toLowerCase()] || "text"
               }
               style={selectedFile?.name.endsWith(".html") ? coy : twilight}
