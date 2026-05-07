@@ -11,11 +11,17 @@ const GithubSearch = () => {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState(null);
   const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // function
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setProfile(null);
+    setRepos([]);
+    setError(null);
+
     try {
       const response = await axios.get(
         `https://api.github.com/users/${userName}`,
@@ -31,6 +37,8 @@ const GithubSearch = () => {
     } catch (error) {
       setProfile(null);
       setError("User not found");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -48,12 +56,18 @@ const GithubSearch = () => {
           className="search-input"
           onChange={(el) => setUsername(el.target.value)}
         />
-        <button type="submit" className="search-btn">
-          Search
+        <button type="submit" className="search-btn" disabled={loading}>
+          {loading ? "Searching..." : "Search"}
         </button>
       </form>
 
       {error && <p className="error-msg">{error}</p>}
+      {loading && (
+        <div className="loading-container">
+          <div className="loader"></div>
+          <p className="loading-text">Fetching GitHub profile...</p>
+        </div>
+      )}
 
       {/* Information */}
       {profile && (
@@ -135,19 +149,11 @@ const GithubSearch = () => {
                 <div className="repo-left">
                   <h3 className="repo-name">{repo.name}</h3>
 
-                  {/* <div className="repo-des"> */}
                   <p className="repo-des">
                     {repo.description || "No description available"}
                   </p>
                 </div>
-                {/* <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="repo-btn"
-                >
-                  Analyze Code
-                </a> */}
+
                 <button
                   target="_blank"
                   className="repo-btn"
