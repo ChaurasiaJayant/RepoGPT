@@ -124,10 +124,6 @@ const AnalyzeRepo = () => {
 
   return (
     <div className="analyze-container">
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        ← Back
-      </button>
-
       <h1 className="analyze-heading">Repository Analysis</h1>
 
       <div className="repo-info">
@@ -141,7 +137,7 @@ const AnalyzeRepo = () => {
       ) : (
         <div className="repo-files">
           {repoFiles.map((file) => (
-            <div key={file.sha} className="file-card">
+            <div key={file.path} className="file-card">
               <div>
                 <h3>{file.name}</h3>
               </div>
