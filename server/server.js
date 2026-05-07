@@ -1,5 +1,3 @@
-
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -85,7 +83,8 @@ Keep the response clean, professional, and properly formatted.
     });
   }
 });
+const PORT = process.env.PORT || 5000;
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
