@@ -106,6 +106,7 @@ const AnalyzeRepo = () => {
   const analyzeCodeWithAI = async () => {
     try {
       setAnalyzing(true);
+      setAnalysis("");
 
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/analyze`,
@@ -219,7 +220,14 @@ const AnalyzeRepo = () => {
             onClick={analyzeCodeWithAI}
             disabled={analyzing}
           >
-            {analyzing ? "Analyzing..." : "Analyze with AI"}
+            {analyzing ? (
+              <span className="loader-btn">
+                <span className="spinner"></span>
+                Analyzing...
+              </span>
+            ) : (
+              "Analyze with AI"
+            )}
           </button>
 
           {analysis && (
